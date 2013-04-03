@@ -15,8 +15,8 @@ public class Game extends JFrame {
 	
 	private JPanel grid = new JPanel();
 	
-	private int rows = 71;
-	private int cols = 38;
+	private int rows = 30;
+	private int cols = 16;
 	private JLabel cells[][];
 	private boolean alive[][];
 	private boolean mark[][];
@@ -40,6 +40,12 @@ public class Game extends JFrame {
 	Timer timer = new Timer(200, updater);
 	
 	public Game() {
+		int screenWidth = java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().width;
+		int screenHeight = java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().height;
+		
+		rows = screenWidth / 18;
+		cols = (screenHeight - 22) / 18;
+		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setSize(rows * 18, (cols * 18) + 22);
 		this.setResizable(false);
